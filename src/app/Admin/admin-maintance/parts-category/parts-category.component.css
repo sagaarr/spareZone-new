@@ -1,0 +1,35 @@
+.supplierDivInner {
+    position: relative;
+}
+img.carImageNew {
+    position: absolute;
+    width: 75%;
+    margin: 0 auto;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 55%;
+}
+.UpperBoxDiv td{
+    border: 1px solid #119cee;
+}
+.UpperBoxDiv td.active, .UpperBoxDiv td:hover{
+    background-color: #119cee78;
+}
+.MaintanceSingle.CarImgBox {
+    position: relative;
+    text-align: center;
+    height: 90%;
+    margin-top: 7px;
+}
+.UpperBoxDiv {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    /* margin: 0 auto; */
+    margin-left: 10%;
+}
+.UpperBoxDiv table{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}

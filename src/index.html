@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <style>
+      .loaderimg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90px;
+  }
+  .overlayDivLoader {
+      position: fixed;
+      z-index: 99999;
+      width: 100%;
+      height: 100vh;
+      background-color: #00000094;
+      top: 0;
+      display: none;
+  }   
+  </style>
+  <meta charset="utf-8">
+  <title>SparezoneAngular</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Link Files -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+    <div class="overlayDivLoader">
+        <img src="assets/images/loaderimg.png" class="loaderimg">
+    </div>
+  <app-root></app-root>
+</body>
+</html>

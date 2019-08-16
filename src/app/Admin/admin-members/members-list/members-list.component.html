@@ -1,0 +1,92 @@
+	<app-background-image></app-background-image>
+	<!-- fix bg -->
+	<!-- main Page -->
+	<div class="commonMainDiv">
+		<!-- menu strat -->
+		<app-admin-nav></app-admin-nav>
+		<!-- inovice listing -->
+		<div class="AdminPageMain">
+			<div class="AdminPageMainInner">
+				<div class="AdminPagehead">
+					<div class="lefthead leftheadInvoiceListing">
+						<h4>Filter By</h4>
+						<select class="commonInput">
+							<option value=""[selected]=true> State</option>
+							<option *ngFor="let states of states"> {{states.state}}</option>
+						</select>
+						
+						<select class="commonInput">
+							<option value="" [selected]="true"> Group</option>
+							<option *ngFor="let groups of groupType">{{groups.group_name}} </option>
+						</select>
+					</div>
+					
+				</div>
+				<div class="custumPop max800 listinvoicePop">
+					<div class="listinvoicePopHead">
+						<h4 class="">Members listing</h4>
+						<div class="membListRight">
+							<a>Least Active Supplier</a>
+							<img src="assets/images/searchicon.png" class="searchIcon">
+							<input type="text" class="commonInput" placeholder="Search">
+						</div>
+					</div>
+					<div class="invoicetable">
+						<table class="table table-bordered">
+							<thead>
+							  <tr>
+								<th> ID </th>
+								<th class="text-left">Members Name</th>
+								<th>State</th>
+								<th>Contact Number</th>
+								<th>Status</th>
+								<th>Reg Date</th>
+								<th>Action</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr *ngFor="let memberListing of memberListing;let i=index">
+								<td>{{memberListing.member_no}}</td>
+								<td *ngIf="memberListing.account_type == 1">{{memberListing.first_name}} {{memberListing.last_name}}</td>
+								<td *ngIf="memberListing.account_type == 2">{{memberListing.business_name}}</td>
+								<td>{{memberListing.state_name}}</td>
+								<td>{{memberListing.personal_contact}}</td>
+								<td  [ngClass]="memberListing.cust_status == 1?'red':'green'">{{memberListing.cust_status == 0?'Active':'Inactive'}}</td>
+								<td>{{memberListing.added_date_time|date}}</td>
+								<td>
+									<div class="disF">
+										<img src="assets/images/viewicon.png" class="commonIconTable" >
+										<img src="assets/images/editicon.png" class="commonIconTable">
+										<img src="assets/images/closexicon.png" class="commonIconTable" *ngIf="memberListing.cust_status == 0" (click)="activeDeactiveSupplier(i,'1',memberListing.customer_id,memberListing.email_id)">
+										<img src="assets/images/check.png" class="commonIconTable" *ngIf="memberListing.cust_status == 1" (click)="activeDeactiveSupplier(i,'0',memberListing.customer_id,memberListing.email_id)">
+									</div>
+								</td>
+							  </tr>
+							</tbody>
+						  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <div class="overlayDiv" id="addGroup" *ngIf="confirmationPopUp">
+	<form  class="newBtnPopup">
+	  <div class="form-group closeBtnDiv">
+		<span href="#" class="closeBtn" (click)="confirmationPopUp = false"><img src="assets/images/cancel.png" alt=""></span>
+	  </div>
+	  <div class="form-group">
+		<img src="assets/images/trash-can.png" alt="">
+	  </div>
+	  <div class="form-group TextDiv">
+		<h4 class="popUpHead">Are you sure to ?</h4>
+		<p class="popupPara">Do you really want to {{customer_data['cust_status'] == 0?'Active':'Deactive'}} the account? You can not cancel this process.</p>
+	  </div>
+	  <div class="form-group cancelPopupBtn">
+		<button class="btn commonBlueBtn lightBlueBtn" type="button" (click)="confirmationPopUp = false">NO</button>
+		<button class="btn commonWhiteBtn" type="button" (click)="confirmActionSupplier()">YES</button>
+	  </div>
+	  
+	</form>
+  </div>
+	<!-- inovice listing  end-->
